@@ -1,0 +1,7 @@
+#!/bin/sh
+
+blkid | while read LINE; do
+  if [ $(echo $LINE | grep sda) != 0 ]; then
+    echo $LINE
+  fi
+done

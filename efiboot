@@ -1,0 +1,11 @@
+#!/bin/sh
+
+params="root=/dev/sda2 rw \
+  initrd=\intel-ucode.img \
+  initrd=\initramfs-lts"
+
+efibootmgr --create --label "Alpine Linux" \
+  --disk /dev/sda --part 1 \
+  --loader /vmlinuz-lts \
+  --unicode "${params}" \
+  --verbose
